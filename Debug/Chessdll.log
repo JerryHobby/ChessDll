@@ -1,0 +1,57 @@
+﻿Build started 11/20/2014 4:29:23 PM.
+     1>Project "D:\MalakaGL\Chess\ChessdllSolution\Chessdll\Chessdll.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\Chessdll.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D CHESSDLL_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\Chessdll.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Chessdll.cpp
+         Chessdll.cpp
+     1>d:\malakagl\chess\chessdllsolution\chessdll\chessdll.h(14): warning C4251: 'ChessBoard::board' : class 'std::vector<_Ty>' needs to have dll-interface to be used by clients of class 'ChessBoard'
+                 with
+                 [
+                     _Ty=ChessPeice *
+                 ]
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D CHESSDLL_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\Chessdll.dll.embed.manifest.res" Debug\Chessdll_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Chessdll.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.lib" /MACHINE:X86 /DLL Debug\Chessdll.dll.embed.manifest.res
+         Debug\Bishop.obj
+         Debug\Chessdll.obj
+         Debug\ChessPeice.obj
+         Debug\Command.obj
+         Debug\dllmain.obj
+         Debug\King.obj
+         Debug\Knight.obj
+         Debug\Pawn.obj
+         Debug\Queen.obj
+         Debug\Rook.obj
+         Debug\stdafx.obj
+            Creating library D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.lib and object D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.exp
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Chessdll.dll.embed.manifest" /manifest Debug\Chessdll.dll.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\Chessdll.dll.embed.manifest.res" Debug\Chessdll_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Chessdll.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.lib" /MACHINE:X86 /DLL Debug\Chessdll.dll.embed.manifest.res
+         Debug\Bishop.obj
+         Debug\Chessdll.obj
+         Debug\ChessPeice.obj
+         Debug\Command.obj
+         Debug\dllmain.obj
+         Debug\King.obj
+         Debug\Knight.obj
+         Debug\Pawn.obj
+         Debug\Queen.obj
+         Debug\Rook.obj
+         Debug\stdafx.obj
+            Creating library D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.lib and object D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.exp
+         Chessdll.vcxproj -> D:\MalakaGL\Chess\ChessdllSolution\Debug\Chessdll.dll
+       FinalizeBuildStatus:
+         Deleting file "Debug\Chessdll.unsuccessfulbuild".
+         Touching "Debug\Chessdll.lastbuildstate".
+     1>Done Building Project "D:\MalakaGL\Chess\ChessdllSolution\Chessdll\Chessdll.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.78

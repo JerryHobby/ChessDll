@@ -1,0 +1,17 @@
+#pragma once
+
+#define BLACK 'B'
+#define WHITE 'W'
+#define EMPTY 'E'
+#define ROOK 'R'
+#define PAWN 'P'
+#define KNIGHT 'N'
+#define BISHOP 'B'
+#define QUEEN 'Q'
+#define KING 'K'
+#define MOVE 'M'
+#define CAPTURE 'X'
+#define KINGCASTLING 'K'
+#define QUEENCASTLING 'Q'
+#define CHECK '+'
+#define CHECKMATE '#'
