@@ -101,10 +101,10 @@ bool ChessBoard::isValid( std::string cmd )
 	////////////////////////////////////////////////////////
 
 	std::vector<ChessPeice *> temp = ( board ) ;
-	return execute( temp ) ;
+	return execute( temp , true ) ;
 }
 
-bool ChessBoard::execute( std::vector<ChessPeice*> &temp )
+bool ChessBoard::execute( std::vector<ChessPeice*> &temp , bool checking )
 {
 	std::vector<char> act = command->getActions( ) ;
 	int cell = -1 ;
@@ -164,6 +164,8 @@ bool ChessBoard::execute( std::vector<ChessPeice*> &temp )
 			}
 		}
 	}
+	if( !checking )
+		currentPlayer = ( currentPlayer == WHITE ) ? BLACK : WHITE ;
 	return true ;
 }
 
@@ -209,16 +211,25 @@ bool ChessBoard::validCapture( std::vector<ChessPeice*> myBoard )
 		if( myBoard.at( i )->getRank( ) == command->getSubject( )
 			&& myBoard.at( i )->getColor( ) == currentPlayer
 			&& tryToMove( myBoard , command->getSubject( ) , command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) )
-			&& myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) )->getColor( ) != currentPlayer )  
+			&& myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) )->getColor( ) != currentPlayer )
 		{
-			ChessPeice * temp = ( myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) ) ;
-			myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) = new ChessPeice( EMPTY , EMPTY ) ;
-			if( !obstacles( i / 8 , i % 8 , command->getPoints( ).at( 0 ) , command->getPoints( ).at( 0 ) ) )
+			if( tryToMove( myBoard , command->getSubject( ) , command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) )  
 			{
+				ChessPeice * temp = ( myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) ) ;
+				myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) = new ChessPeice( EMPTY , EMPTY ) ;
+				if( !obstacles( i / 8 , i % 8 , command->getPoints( ).at( 0 ) , command->getPoints( ).at( 0 ) ) )
+				{
+					myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) = ( temp ) ;
+					return true ;
+				}
 				myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) = ( temp ) ;
+			}
+			if( myBoard.at( i )->getRank( ) == PAWN
+				&& static_cast<Pawn *> ( myBoard.at( i ) )->canCapture( i / 8 , i % 8 , 
+					command->getPoints( ).at( 0 ) , command->getPoints( ).at( 1 ) ) )
+			{
 				return true ;
 			}
-			myBoard.at( command->getPoints( ).at( 0 ) * 8 + command->getPoints( ).at( 1 ) ) = ( temp ) ;
 		}
 	}
 	return false ;
@@ -314,6 +325,7 @@ bool ChessBoard::move ( std::string cmd )
 /**
   * check whether a given move can be done or not.
   * uses a copy of the board.
+  * startpos = -1 if all 4 points are given in command
   */
 int ChessBoard::tryToMove ( std::vector<ChessPeice *> myBoard , char peice , int endPos , int startPos )
 {
@@ -329,8 +341,9 @@ int ChessBoard::tryToMove ( std::vector<ChessPeice *> myBoard , char peice , int
 	{
 		for( size_t i =0 ; i < myBoard.size( ) ; i++ )
 		{
-			if( myBoard.at( i )->getRank( ) == peice &&
-				checkPeice( myBoard.at( i ) , i ) )
+			if( myBoard.at( i )->getRank( ) == peice 
+				&& myBoard.at( i )->getColor( ) == currentPlayer
+				&& checkPeice( myBoard.at( i ) , i ) )
 			{	
 					return i ;
 			}

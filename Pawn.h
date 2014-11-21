@@ -9,5 +9,6 @@ private:
 public:
 	Pawn( char , char ) ;
 	bool canMove( int , int , int , int ) ;
+	bool canCapture( int , int , int , int ) ;
 	~Pawn( void ) ;
 } ;

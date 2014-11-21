@@ -32,5 +32,5 @@ private:
 	bool ChessBoard::isChecked( std::vector<ChessPeice*> ) ;
 	bool ChessBoard::checkMate( std::vector<ChessPeice*> ) ;
 	bool ChessBoard::validCapture( std::vector<ChessPeice*> ) ;
-	bool ChessBoard::execute( std::vector<ChessPeice*> &a ) ;
+	bool ChessBoard::execute( std::vector<ChessPeice*> &a , bool checking = false ) ;
 } ;

@@ -4,6 +4,7 @@
 #include <string>
 #include <cmath>
 #include <ctype.h>		// case detection
+#include <algorithm>	// find in vector
 
 #include "Rook.h"
 #include "Knight.h"
